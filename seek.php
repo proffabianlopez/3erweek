@@ -28,32 +28,9 @@
                 </div>
             </div>
         </form>
+        <button type="sudmit" id="uno" name="uno">UNO</button>
         
-        <?php if (isset($_GET['criterio']) && isset($_GET['valor'])): ?>
-            <?php
-                $archivo = "./Data/datos.txt"; // Ruta del archivo de datos
-                $criterio = $_GET['criterio'];
-                $valor = strtolower($_GET['valor']);
-                $resultados = [];
-                
-                if (file_exists($archivo)) {
-                    $file = fopen($archivo, "r");
-                    while (($line = fgets($file)) !== false) {
-                        $campos = explode("|", trim($line));
-                        
-                        $mapa = [
-                            'autor' => 4,
-                            'descripcion' => 2,
-                            'editorial' => 6
-                        ];
-                        
-                        if (isset($mapa[$criterio]) && stripos($campos[$mapa[$criterio]], $valor) !== false) {
-                            $resultados[] = $campos;
-                        }
-                    }
-                    fclose($file);
-                }
-            ?>
+        
             
             
 
@@ -81,6 +58,28 @@
                 </tbody>
             </table>
         <?php endif; ?>
+
+        
+        <?php
+        $input = file("Data/datos.txt");
+        $valores = [];
+        foreach ($input as $line) {
+            $campos = explode("|", trim($line));
+            $autor = isset($campos[4]) && trim($campos[4]) !== '' ? strtoupper(trim($campos[4])) : "SIN DATOS";
+            $valores[$autor] = true;
+        }
+        
+        $valores = array_keys($valores);
+        sort($valores);
+        $output = fopen("Autores.Dat", "w");
+        $id = 1;
+        foreach ($valores as $valor) {
+            fwrite($output, $id . "|" . $valor . PHP_EOL);
+            $id++;
+        }
+        fclose($output);
+        
+        ?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
