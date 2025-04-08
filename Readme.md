@@ -16,18 +16,18 @@ En clase se mostro un ejemplo de real de un archivo en cual esta en un formato d
 Exportar el archivo Biblio el cual contiene un formato como se indica a continuación:
 con un ejemplo de contenido de cada campo
 
-array(11) { 
-    [0]=> string(5) "13477" 
-    [1]=> string(15) "R 60(03) ENC T1" 
-    [2]=> string(39) "ENCICLOPEDIA DE LA CIENCIA Y DE LA TEC." 
-    [3]=> string(0) "" [4]=> string(0) "" 
-    [5]=> string(7) "CIENCIA" 
-    [6]=> string(5) "DANAE" 
-    [7]=> string(0) "" 
-    [8]=> string(3) "S/E" 
-    [9]=> string(0) "" 
-    [10]=> string(0) "" 
-    }
+array(11) {
+[0]=> string(5) "13477"
+[1]=> string(15) "R 60(03) ENC T1"
+[2]=> string(39) "ENCICLOPEDIA DE LA CIENCIA Y DE LA TEC."
+[3]=> string(0) "" [4]=> string(0) ""
+[5]=> string(7) "CIENCIA"
+[6]=> string(5) "DANAE"
+[7]=> string(0) ""
+[8]=> string(3) "S/E"
+[9]=> string(0) ""
+[10]=> string(0) ""
+}
 El indice del array indica el campo por ejemplo el indice 0 es un codigo interno numerico que posee un libro dentro de la biblioteca.
 
 Una vez que hayan podido exportar los datos, se piden trabajar el archivo de datos, dejando el origina con el nombre BIBLIO.TXT
@@ -46,6 +46,7 @@ Se pide normalizar el archivo origen que es datos.txt
 Para ello deberán crear un script por cada archivo que se generara para luego en otra etapa realizar la normalización completa. Lo único por ahora sera crear 3 archivos que nos permitiran luegos usarlos de pivote.
 
 Los archivos a generar son:
+
 - Autores.Dat
 - Generos.Dat
 - Edutoriales.Dat
@@ -69,5 +70,3 @@ Autores.Dat
 Estos script no son para correr por entorno visual, se recomienda que sean corridos por la terminal, ingresando a la imagen del container.
 
 Con esos 3 archivos finaliza esta actividad por el momento.
-
-
