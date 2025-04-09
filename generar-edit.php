@@ -1,21 +1,21 @@
 <?php
-$input = file("Data/data/datos1.txt");// ruta del archivo dato
-$valores = []; // array para guardar  los datos
-foreach ($input as $line) // ectrutura de repeticion para  leer  el archivo linea por linea
+$input = file("Data/data/datos1.txt");
+$valores = []; 
+foreach ($input as $line) 
  {
-    $campos = explode("|", trim($line)); //  variable que explora  los campos en las lineas por  |
-    $Genero = isset($campos[6]) && trim($campos[6]) !== '' ? strtoupper(trim($campos[6])) : "SIN DATOS"; //guarda en variable genero  cada campo  que le solicito y si no esta  da sin datos 
-    $valores[$Genero] = true; // validacion para que no se repita  los datos
+    $campos = explode("|", trim($line)); 
+    $Edit = isset($campos[6]) && trim($campos[6]) !== '' ? strtoupper(trim($campos[6])) : "SIN DATOS"; 
+    $valores[$Edit] = true; 
 }
 
-$valores = array_keys($valores); // vuelvo asociativo el array
-sort($valores);//ordeno alfabeticamente
-$output = fopen("editoriales.dat", "w"); // creo el  archivo genero.dat
+$valores = array_keys($valores); 
+sort($valores);
+$output = fopen("editoriales.dat", "w"); 
 $id = 1; // id =1 
-foreach ($valores as $valor) // ciclo de repeticion para leer  el array
+foreach ($valores as $valor) 
 {
-    fwrite($output, $id . "|" . $valor . PHP_EOL); // recorre y agrega ||
-    $id++;// incrementa el id 
+    fwrite($output, $id . "|" . $valor . PHP_EOL); 
+    $id++;
 }
-fclose($output);// se cierra el archivo genero.dat
+fclose($output);
 ?>
