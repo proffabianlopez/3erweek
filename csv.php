@@ -1,7 +1,7 @@
 <?php
-$archivoCsv = "./data/EXPORTED.TXT";
-$archivoSalida = './data/export_modificado.txt';
-$logErrores = './data/errores.log';
+$archivoCsv = "./Data/BIBLIO.TXT";
+$archivoSalida = './Data/datos.txt';
+$logErrores = './Data/errores.log';
 if (is_readable($archivoCsv)) {
     $copiaArchivo = fopen($archivoCsv, "r");
     if ($copiaArchivo) {
