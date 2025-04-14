@@ -1,8 +1,8 @@
 <?php
 $fileCsv= "./Data/datos.txt";
-$fileRubro = "./Data/rubros.txt";
-$fileEditorial = "./Data/editoriales.txt";
-$fileAutor = "./Data/autores.txt";
+$fileRubro = "./File/rubros.txt";
+$fileEditorial = "./File/editoriales.txt";
+$fileAutor = "./File/autores.txt";
 
 $archivo = fopen($fileCsv, "r");
 
@@ -54,7 +54,7 @@ while (($campos = fgetcsv($archivo, 0, "|")) !== false) {
 fclose($archivo);
 
 // Escribir archivo transformado
-$salida_archivo = fopen("./Data/datos_transformados.txt", "w");
+$salida_archivo = fopen("./File/datos_transformados.txt", "w");
 foreach ($salida as $linea) {
     fwrite($salida_archivo, $linea . PHP_EOL);
 }
@@ -64,7 +64,7 @@ file_put_contents("$fileRubro", implode(PHP_EOL, $rubros));
 file_put_contents("$fileEditorial", implode(PHP_EOL, $editoriales));
 
 if (!empty($log)) {
-    file_put_contents("./Data/log_errores.txt", implode(PHP_EOL, $log));
+    file_put_contents("./File/log_errores.txt", implode(PHP_EOL, $log));
 }
 
 
